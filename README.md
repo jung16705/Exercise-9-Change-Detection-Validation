@@ -16,10 +16,8 @@ NTU 遙測與空間資訊之分析與應用｜Week 9 作業與實作。以 Senti
 | `Week9-Student.ipynb` | 學生主實作 notebook (Lab 1 + Lab 2 + Homework) |
 | `Week9-Lab1-PDF.ipynb` | 課堂 PDF 版 Lab 1 參考 notebook |
 | `validation_points.geojson` | 60 個驗證真值點 (lake / landslide / stable) |
-| `Pre-lab-Week9.md` | 課前準備說明 |
 | `Homework-Week9.md` | 本週作業規範 |
 | `output/` | 主 notebook 產出的圖 |
-| `output_lab1_pdf/` | PDF 版 Lab 1 產出的圖 |
 
 ---
 
