@@ -16,18 +16,25 @@ NTU 遙測與空間資訊之分析與應用｜Week 9 作業與實作。以 Senti
 | `Week9-Student.ipynb` | 學生主實作 notebook (Lab 1 + Lab 2 + Homework) |
 | `Week9-Lab1-PDF.ipynb` | 課堂 PDF 版 Lab 1 參考 notebook |
 | `validation_points.geojson` | 60 個驗證真值點 (lake / landslide / stable) |
+| `Pre-lab-Week9.md` | 課前準備說明 |
 | `Homework-Week9.md` | 本週作業規範 |
 | `output/` | 主 notebook 產出的圖 |
+| `output_lab1_pdf/` | PDF 版 Lab 1 產出的圖 |
 
 ---
 
 ## 環境需求
 
 - Python ≥ 3.10
-- `numpy`, `pandas`, `matplotlib`, `seaborn`, `scikit-learn`
-- `jupyterlab`, `ipykernel`
+- 必裝：`numpy`, `pandas`, `matplotlib`, `seaborn`, `scikit-learn`, `jupyterlab`, `ipykernel`
+- 選用 (線上模式)：`pystac-client`, `planetary-computer`, `pystac`, `odc-stac`
+  （§S2 搜尋 Sentinel-2 場景 + §S3.5 載入真實像素；缺任何一個就自動 fallback 成合成場景）
 
 > notebook 用內建 `json` 讀取 `validation_points.geojson`，**不需要** `geopandas / rasterio / gdal`。
+> 若不裝 STAC 套件，§S2 會印出 `Mode: SYNTHETIC (offline teaching mode)` 並自動改用合成影像，後續所有分析流程仍可完整跑完。
+>
+> **線上模式記憶體注意**：§S3.5 以 `ONLINE_RES = 0.0002` (~22 m) 載入，三幕合計約 100 MB。
+> 若要降到 ~25 MB，把該常數改為 `0.0004` (~44 m)。
 
 ---
 
@@ -44,6 +51,8 @@ source .venv/bin/activate        # Windows: .venv\Scripts\activate
 # 3. 安裝套件
 pip install --upgrade pip
 pip install jupyterlab ipykernel numpy pandas matplotlib seaborn scikit-learn
+# 選用：要跑線上模式 (真實 Sentinel-2) 再多裝這四個
+pip install pystac-client planetary-computer pystac odc-stac
 
 # 4. 註冊 kernel
 python -m ipykernel install --user --name week9-venv --display-name "Python (Week9 venv)"
